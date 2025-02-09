@@ -1,4 +1,8 @@
 require("lazy").setup({
+{
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+},
   {
     "AstroNvim/AstroNvim",
     version = "^4", -- Remove version tracking to elect for nightly AstroNvim
@@ -11,9 +15,12 @@ require("lazy").setup({
       update_notifications = true, -- Enable/disable notification about running `:Lazy update` twice to update pinned plugins
     },
   },
-  { import = "community" },
-  { import = "plugins" },
-} --[[@as LazySpec]], {
+  {
+	"chrisgrieser/nvim-lsp-endhints",
+	event = "LspAttach",
+	opts = {}, -- required, even if empty
+  },
+  } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
